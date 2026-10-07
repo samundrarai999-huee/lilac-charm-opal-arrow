@@ -1,0 +1,490 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lilac: #f3eaf6;
+  --color-lilac-deep: #dcc6ea;
+  --color-paper: #fff8f2;
+  --color-peach: #fff4e5;
+  --color-ink: #4a3550;
+  --color-plum: #8a708f;
+  --color-rose: #c97b9a;
+  --color-rose-fg: #fff8f2;
+  --color-blush: #f4c4d4;
+  --color-gold: #e8c56b;
+  --color-line: #e8d5e4;
+  --color-flame: #ffb347;
+  --font-sans: "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 40px;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100dvh;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-lilac);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button,
+  [role="button"] {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.scene-root {
+  min-height: 100dvh;
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.scene-panel {
+  min-height: 100dvh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: max(1rem, env(safe-area-inset-top)) 1.25rem
+    max(1.25rem, env(safe-area-inset-bottom));
+  position: relative;
+  z-index: 1;
+}
+
+.scene-enter {
+  animation: scene-in 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes scene-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.bg-lock {
+  background:
+    radial-gradient(120% 80% at 50% -10%, #fff6c8 0%, transparent 46%),
+    radial-gradient(90% 70% at 100% 100%, #f4c4d4 0%, transparent 42%),
+    radial-gradient(80% 60% at 0% 80%, #dcc6ea 0%, transparent 48%),
+    var(--color-lilac);
+}
+
+.bg-cake {
+  background:
+    radial-gradient(100% 70% at 50% 0%, #ffe7f0 0%, transparent 50%),
+    radial-gradient(80% 50% at 90% 100%, #fff1c4 0%, transparent 46%),
+    var(--color-lilac);
+}
+
+.bg-choice {
+  background:
+    radial-gradient(90% 60% at 20% 0%, #f4c4d4 0%, transparent 50%),
+    radial-gradient(80% 50% at 100% 80%, #fff1c4 0%, transparent 46%),
+    var(--color-lilac);
+}
+
+.bg-letter {
+  background:
+    radial-gradient(80% 50% at 50% 0%, #ffe8f0 0%, transparent 48%),
+    var(--color-peach);
+}
+
+.bg-gift {
+  background:
+    radial-gradient(90% 70% at 50% 0%, #fff1c4 0%, transparent 52%),
+    radial-gradient(70% 50% at 80% 100%, #f4c4d4 0%, transparent 46%),
+    var(--color-peach);
+}
+
+.bg-final {
+  background:
+    radial-gradient(90% 70% at 50% 0%, #f4c4d4 0%, transparent 50%),
+    radial-gradient(80% 50% at 0% 100%, #dcc6ea 0%, transparent 48%),
+    var(--color-lilac);
+}
+
+.dot-veil {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    color-mix(in oklab, var(--color-rose) 22%, transparent) 1.1px,
+    transparent 1.2px
+  );
+  background-size: 22px 22px;
+  opacity: 0.45;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+}
+
+.float-bit {
+  position: absolute;
+  color: var(--color-rose);
+  opacity: 0.42;
+  animation: float-y 6.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.float-bit:nth-child(odd) {
+  animation-duration: 7.8s;
+  color: var(--color-gold);
+}
+
+.float-bit:nth-child(3n) {
+  animation-duration: 5.6s;
+  color: var(--color-lilac-deep);
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-6deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(8deg);
+  }
+}
+
+.pin-shake {
+  animation: pin-shake 420ms cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes pin-shake {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  80% {
+    transform: translateX(6px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-8px);
+  }
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
+}
+
+.portrait-frame {
+  width: min(58vw, 220px);
+  aspect-ratio: 1;
+  padding: 8px;
+  border-radius: 40px;
+  background: linear-gradient(180deg, #ead6f4, #d7b8e8);
+  box-shadow:
+    0 18px 40px color-mix(in oklab, var(--color-ink) 16%, transparent),
+    0 0 0 6px color-mix(in oklab, white 55%, transparent);
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 32px;
+  display: block;
+}
+
+.keypad-key {
+  height: 3.5rem;
+  border-radius: 1.25rem;
+  background: color-mix(in oklab, white 78%, var(--color-lilac-deep));
+  color: var(--color-ink);
+  font-weight: 700;
+  font-size: 1.35rem;
+  box-shadow:
+    0 1px 0 color-mix(in oklab, white 80%, transparent),
+    0 8px 16px color-mix(in oklab, var(--color-ink) 8%, transparent);
+  transition:
+    transform 150ms ease-out,
+    background 150ms ease-out;
+}
+
+.keypad-key:active {
+  transform: scale(0.96);
+  background: white;
+}
+
+.cake-glow {
+  position: absolute;
+  left: 50%;
+  top: 38%;
+  width: 70%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    color-mix(in oklab, var(--color-gold) 70%, white) 0%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  opacity: 0.55;
+  animation: glow-pulse 1.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.cake-glow.off {
+  opacity: 0;
+  animation: none;
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.38;
+    transform: translate(-50%, -50%) scale(0.96);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+.count-pop {
+  animation: count-pop 420ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes count-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.next-glow {
+  background: var(--color-rose);
+  color: var(--color-rose-fg);
+  box-shadow:
+    0 0 0 6px color-mix(in oklab, var(--color-rose) 18%, transparent),
+    0 12px 28px color-mix(in oklab, var(--color-rose) 38%, transparent);
+  animation: next-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes next-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 6px color-mix(in oklab, var(--color-rose) 16%, transparent),
+      0 12px 28px color-mix(in oklab, var(--color-rose) 34%, transparent);
+  }
+  50% {
+    box-shadow:
+      0 0 0 10px color-mix(in oklab, var(--color-rose) 22%, transparent),
+      0 16px 32px color-mix(in oklab, var(--color-rose) 46%, transparent);
+  }
+}
+
+.choice-card {
+  background: color-mix(in oklab, white 82%, var(--color-paper));
+  border: 1px solid color-mix(in oklab, var(--color-line) 80%, white);
+  box-shadow: 0 16px 36px color-mix(in oklab, var(--color-ink) 10%, transparent);
+  transition:
+    transform 180ms ease-out,
+    box-shadow 180ms ease-out;
+}
+
+.choice-card:active {
+  transform: scale(0.96);
+}
+
+.letter-sheet {
+  background: var(--color-paper);
+  border: 1px solid color-mix(in oklab, var(--color-line) 80%, white);
+  box-shadow:
+    0 18px 40px color-mix(in oklab, var(--color-ink) 12%, transparent),
+    inset 0 0 0 1px color-mix(in oklab, white 70%, transparent);
+}
+
+.caret {
+  display: inline-block;
+  width: 0.45em;
+  animation: caret 1s steps(1) infinite;
+  color: var(--color-rose);
+}
+
+@keyframes caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.gift-shake {
+  animation: gift-shake 700ms ease-in-out infinite;
+}
+
+@keyframes gift-shake {
+  0%,
+  100% {
+    transform: rotate(-2deg) translateY(0);
+  }
+  25% {
+    transform: rotate(3deg) translateY(-4px);
+  }
+  50% {
+    transform: rotate(-3deg) translateY(0);
+  }
+  75% {
+    transform: rotate(2.4deg) translateY(-3px);
+  }
+}
+
+.gift-open {
+  animation: gift-open 620ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes gift-open {
+  0% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.18) rotate(-8deg);
+    opacity: 0;
+  }
+}
+
+.puppy-dance {
+  animation: puppy-dance 900ms ease-in-out infinite;
+  transform-origin: 50% 80%;
+}
+
+@keyframes puppy-dance {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(4deg);
+  }
+}
+
+.bubble {
+  position: relative;
+  background: white;
+  color: var(--color-ink);
+  border-radius: 22px;
+  padding: 0.9rem 1.1rem;
+  box-shadow: 0 10px 24px color-mix(in oklab, var(--color-ink) 10%, transparent);
+}
+
+.bubble:after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 10px 9px 0 9px;
+  border-style: solid;
+  border-color: white transparent transparent transparent;
+}
+
+.balloon {
+  position: absolute;
+  width: 22px;
+  height: 28px;
+  border-radius: 50% 50% 48% 48% / 42% 42% 58% 58%;
+  animation: balloon-float 7s ease-in-out infinite;
+  pointer-events: none;
+  box-shadow:
+    inset -5px -6px 10px rgb(74 53 80 / 0.14),
+    0 6px 10px rgb(74 53 80 / 0.1);
+}
+
+.balloon:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  width: 1px;
+  height: 38px;
+  background: color-mix(in oklab, var(--color-plum) 40%, transparent);
+}
+
+.b-rose {
+  background: #f4c4d4;
+}
+.b-lilac {
+  background: #dcc6ea;
+}
+.b-gold {
+  background: #e8c56b;
+}
+
+@keyframes balloon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.photo-hole {
+  background: color-mix(in oklab, var(--color-blush) 28%, white);
+}
+
+.art-soft {
+  -webkit-mask-image: radial-gradient(ellipse 78% 78% at 50% 52%, #000 60%, transparent 78%);
+  mask-image: radial-gradient(ellipse 78% 78% at 50% 52%, #000 60%, transparent 78%);
+}
+
+.fx-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 40;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene-enter,
+  .float-bit,
+  .cake-glow,
+  .count-pop,
+  .next-glow,
+  .gift-shake,
+  .puppy-dance,
+  .balloon,
+  .pin-shake,
+  .caret {
+    animation: none !important;
+  }
+}

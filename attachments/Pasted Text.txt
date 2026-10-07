@@ -1,0 +1,60 @@
+Create a clean, smooth, mobile-first interactive birthday surprise website (single HTML file with embedded CSS and JavaScript, no external libraries except for optional confetti if needed). It must work perfectly on mobile phones with no lag.
+Flow & Features:
+1. Password Lock Screen (First Page)
+•  Soft pastel purple/yellow background with cute decorations (stars, soft patterns)
+•  Top text in elegant bold font: “Who’s birthday is today..???”
+•  Center: Cute illustrated character (Snoopy-style or similar cute cartoon) holding flowers inside a soft purple frame
+•  4-digit passcode keypad (big, easy to tap)
+•  Correct password: 0621
+•  On correct password → soft fade + confetti/blast transition to next page
+2. Cake Surprise Page
+•  Beautiful animated birthday cake in the center (2-layer cake with pink/white frosting, strawberries, and lit candles)
+•  Top text with birthday decorations style: “HAPPY BIRTHDAY PUJA DD”
+•  Soft floating decorations (balloons, stars, ribbons) around
+•  Bottom text: “Blow the candles in 3 seconds”
+•  Automatic countdown appears: 3 → 2 → 1
+•  After countdown, activate device microphone for 3 seconds
+•  When user blows into the phone mic (detect wind/noise), the candles extinguish with a smooth animation (smoke effect)
+•  Immediately after candles blow out → big cheerful confetti + firecracker (pataka) blast
+•  Two small happy animated cartoon characters appear and celebrate
+•  Then a clear glowing “Next →” button appears at the bottom
+3. Choice Page (after Next)
+•  Two big beautiful options side by side or stacked (mobile friendly):
+	•  Letter (with envelope icon + soft decorations)
+	•  Gift Box (cute gift box with ribbon)
+4. Letter Page
+•  Soft decorated letter background with flowers and gentle animations
+•  Clear placeholder in the middle/top for photo upload or image of sister (user can replace later)
+•  Beautiful typed letter with the exact text:
+Happy Birthday to YOU..
+PUJA DD..🥳🎂
+Tpi ko din haru sbb special hoss..
+Vagawan jo kripa sadhai tpi ma rahi rahos..
+Tpi ko life ma sadhai positive vibes rww joy bhari rahos..
+I wish whatever YOU(PUJA DD) dream of, may it slowly come true
+May this new age bring more happiness, good health and beautiful moments…
+And once again many many returns of the day happy birthday to YOU PUJA DD..🎊💐
+•  Soft flowers and decorations around the letter
+•  A “Next →” button at the bottom
+5. Gift Box Page
+•  Animated gift box that opens with a surprise blast + confetti
+•  A cute small animated dog appears, dancing happily
+•  The dog gives a flower and a speech bubble appears saying: “Happy Birthday to you Puja DD..🥳”
+•  Soft cheerful background music vibe (optional, silent by default)
+•  Then a “Next →” button
+6. Final Page
+•  Soft decorated ending screen
+•  Text: “I hope u did like this small present from ur Samundra Vai…🙆🏻‍♂️”
+•  Gentle confetti or floating hearts/flowers
+•  Clean and emotional ending feel
+Technical Requirements:
+•  Fully responsive (perfect on mobile)
+•  Smooth animations, no lag
+•  Microphone permission only requested when needed (candle blowing)
+•  Password is fixed as 0621
+•  All text must be exactly as written above
+•  Soft pastel color palette (lavender, soft pink, cream, light yellow)
+•  Cute and emotional birthday vibe
+•  Single file if possible (HTML + CSS + JS together)
+•  Easy to host (can be opened directly or uploaded to Netlify/Vercel/GitHub Pages)
+Make the whole experience feel magical, smooth, and personal — just like those cute Instagram birthday template reels.
